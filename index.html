@@ -1,0 +1,165 @@
+<head>
+<meta name='description' content='Brett Shwom - Javascript Engineer'>
+<meta name='author' content='Brett Shwom'>
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.16.0/build/cssreset/cssreset-min.css">
+<style type='stylesheet/stylus'>body {
+  /* http://css-tricks.com/snippets/css/better-helvetica/ */
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-weight: 300;
+}
+
+/* mixins */
+
+transform()
+  transform arguments
+  -webkit-transform arguments
+  
+animation()
+  animation arguments
+  -webkit-animation arguments
+  
+display_flex()
+  display flex
+  display -webkit-flex
+  
+justify_content()
+  justify-content arguments
+  -webkit-justify-content arguments
+  
+flex_direction()
+  flex-direction arguments
+  -webkit-flex-direction arguments
+  
+align_items()
+  align-items arguments
+  -webkit-align-items arguments
+
+/* end mixins */
+
+@keyframes slideIn {
+  to { transform translate3d(0,0,0)  }
+}
+
+@keyframes appearAndSlide {
+  to { opacity : 1; transform translate3d(0,0,0)  }
+}
+
+@keyframes rotateBack {
+ to { transform rotate3d(0, 0, 0, 0) }
+}
+
+.container { 
+  margin-left:25px
+  margin-right:25px
+  margin-bottom:25px
+  
+  display_flex()
+  justify_content flex-start
+  flex_direction column
+  
+  > header {
+   /* intro animation stuff */
+   animation slideIn 0.5s ease forwards
+   transform translate3d(-100%, 0,0)
+   /* end intro animation stuff */
+   
+   display_flex()
+   flex_direction column
+   align_items center
+   
+  }
+
+  h1 {
+    margin:10px; 
+    font-size:38px;
+  }
+
+  h2 {
+   margin: 10px; 
+  }
+
+  a {
+   color:inherit;
+  }
+
+  a:visited {
+   color:inherit; 
+  }
+  
+  .avatar {
+    
+   /* intro animation stuff */
+   transform rotate3d(0, 1, 0, 100deg)
+   animation rotateBack 0.75s linear forwards
+   /* end intro animation stuff */
+    
+   background:url(https://pbs.twimg.com/profile_images/2460044060/z946bc4qtc3ahtzx0j1v.jpeg);
+   height:100px;
+   width:100px; 
+   background-size:250px;
+   background-position:195px 140px;
+   border-radius:100px;
+   margin:10px;
+  }
+
+  a.place {
+    text-decoration:underline;
+  }
+  
+  p {
+   margin-top:15px; 
+  }
+
+  .who-what-when-where {
+  
+  }
+
+  > section {
+   display_flex()
+   flex_direction column
+   justify_content:center
+   align_items center
+   
+   /*intro animation stuff*/
+   opacity:0;
+   transform translate3d(0,100%,0)
+   animation appearAndSlide 0.25s 0.5s ease forwards
+   /*end intro animation stuff*/
+  
+  }
+
+  > section > p {
+    max-width:400px;
+    text-align:justify;
+    line-height:30px; 
+    font-size:24px;
+  }
+}
+ 
+</style>
+</head>
+<div class='container'>
+<header> 
+  <h1>Brett Shwom</h1>
+  <div class='avatar'></div>
+  <h2>(javascript guy)</h2> 
+</header>
+<section class='who-what-when-where'>
+  <p>I'm currently living in <a class='place' href='http://www.google.com/maps/place/New+York,+NY'>New York</a> 
+  where I'm a software engineer at 
+  <a class='employer' href='http://lab49.com'>Lab49</a>.
+  I was previously building <a class='employer' href='http://wayla.com'>
+  Wayla</a>'s mobile web app. </p>
+  <p>I'm the author of <a href='https://github.com/brett-shwom/backbone-business'>Backbone Business</a>, a buisness rules processor for hiding and showing <a href='http://backbonejs.org#View'>Backbone.js Views</a>. I've also authored <a href='https://github.com/wayla/transition-router'>Transition Router</a> and <a href='https://github.com/Wayla/flow-manager'>Flow Manager</a>.  
+   I've contributed to <a href='https://github.com/shama/gaze'>Gaze</a>.
+  </p>
+</section>
+
+<section class='social'>
+  <p>
+  Find me on <a href='http://twitter.com/brett-shwom'>Twitter</a>, 
+  <a href='http://github.com/brettshwom'>GitHub</a>, 
+  or <a href='http://linkedin.com/in/brettshwom'>LinkedIn</a>.
+  </p>
+</section>
+</div>

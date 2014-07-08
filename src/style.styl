@@ -1,0 +1,194 @@
+body {
+  /* http://css-tricks.com/snippets/css/better-helvetica/ */
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+}
+
+/* mixins */
+
+transform()
+  transform arguments
+  -webkit-transform arguments
+
+animation()
+  animation arguments
+  -webkit-animation arguments
+
+display_flex()
+  display flex
+  display -webkit-flex
+
+justify_content()
+  justify-content arguments
+  -webkit-justify-content arguments
+
+flex_direction()
+  flex-direction arguments
+  -webkit-flex-direction arguments
+
+align_items()
+  align-items arguments
+  -webkit-align-items arguments
+
+/* end mixins */
+
+@keyframes slideIn {
+  to {
+   transform translate3d(0,0,0)
+  }
+}
+
+@keyframes appearAndSlide {
+  to { opacity : 1; transform translate3d(0,0,0)  }
+}
+
+@keyframes rotateBack {
+ to {
+   transform rotate3d(0, 0, 0, 0)
+ }
+}
+
+.home {
+  margin-left:25px
+  margin-right:25px
+  margin-bottom:25px
+
+  display_flex()
+  justify_content flex-start
+  flex_direction column
+
+  > header {
+   /* intro animation stuff *//*
+   animation slideIn 0.5s ease forwards
+   transform translate3d(-100%, 0,0)
+   *//* end intro animation stuff */
+
+   display_flex()
+   flex_direction column
+   align_items center
+
+  }
+
+  h1 {
+    margin:10px;
+    font-size:38px;
+  }
+
+  h2 {
+   margin: 10px;
+  }
+
+  a {
+   color:inherit;
+  }
+
+  a:visited {
+   color:inherit;
+  }
+
+  .avatar {
+
+   /* intro animation stuff *//*
+   transform rotate3d(0, 1, 0, 100deg)
+   animation rotateBack 0.75s linear forwards
+   *//* end intro animation stuff */
+
+   background:url(https://pbs.twimg.com/profile_images/2460044060/z946bc4qtc3ahtzx0j1v.jpeg);
+   height:100px;
+   width:100px;
+   background-size:250px;
+   background-position:195px 140px;
+   border-radius:100px;
+   margin:10px;
+  }
+
+  a.place {
+    text-decoration:underline;
+  }
+
+  p {
+   margin-top:15px;
+  }
+
+  .who-what-when-where {
+
+  }
+
+  > section {
+   display_flex()
+   flex_direction column
+   justify_content:center
+   align_items center
+
+   /*intro animation stuff*//*
+   opacity:0;
+   transform translate3d(0,100%,0)
+   animation appearAndSlide 0.25s 0.5s ease forwards
+   *//*end intro animation stuff*/
+
+  }
+
+  > section > p {
+    max-width:100%;
+    width:400px;
+    text-align:justify;
+    line-height:30px;
+    font-size:24px;
+  }
+}
+
+.gallery {
+    .images {
+        height:100vh;
+        width:100vw;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling:touch;
+        white-space: nowrap;
+    }
+
+    .image-container {
+        width:100vw;
+        height:100vh;
+        display: inline-flex;
+        display: -webkit-inline-flex;
+        align-items:center;
+        -webkit-align-items:center;
+        justify-content:center;
+        -webkit-justify-content:center;
+    }
+
+    .image {
+
+        height:400px;
+        width:900px;
+        background-position:center;
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+        margin-left:30px;
+        margin-right:30px;
+        padding:30px;
+        border: 20px solid black;
+        box-shadow: 2px 1px 10px black;
+    }
+
+    .home {
+      vertical-align: top;
+    }
+
+    .howto {
+      position:fixed;
+      top:0;
+      bottom:0;
+      left:0;
+      right:0;
+      display:flex;
+      display:-webkit-flex;
+      justify-content: center;
+      -webkit-justify-content:center;
+      align-items:center;
+      -webkit-align-items:center;
+      font-size:300px;
+      color:white;
+    }
+}

@@ -17,9 +17,13 @@
     <div class='gallery'>
     <div id='container'></div>
     <script id='template' type='text/template'>
-    <!--
+
     <div class='howto' on-wheel='rotate' style='
         background-color  : rgba(0,0,0,{{0.5-(howtoArrowScrollProgress / 5000)}});
+        opacity           : {{0.5-(howtoArrowScrollProgress / 5000)}};
+        -webkit-transform : translate3d({{-1*howtoArrowScrollProgress/20}}px,0,0);
+        transform         : translate3d({{-1*howtoArrowScrollProgress/20}}px,0,0);
+        {{howtoArrowScrollProgress > 500 ? "pointer-events:none;" : ""}}
        '>
        <i class='fa fa-arrow-circle-down' style='
                 
@@ -28,7 +32,7 @@
                '
 	 ></i>
     </div>
--->
+
     <div class='images' on-wheel='scrollHorizontally'>
 
     {{#images}}
